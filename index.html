@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bonix Racing</title>
+<meta name="description" content="Bonix Racing is a Gran Turismo 7 team running car #21.">
+<link rel="canonical" href="https://bonix-racing.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bonix-racing.com/">
+<meta property="og:title" content="Bonix Racing">
+<meta property="og:description" content="Gran Turismo 7 team running car #21.">
+<meta property="og:image" content="https://bonix-racing.com/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BMW M6 GT3 in the Bonix livery, number 21">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#070B1F">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/big-shoulders-display.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/saira-italic.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Big Shoulders Display";src:url(fonts/big-shoulders-display.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Instrument Sans";src:url(fonts/instrument-sans.woff2) format("woff2");font-weight:400 700;font-display:swap}
+@font-face{font-family:"Saira";src:url(fonts/saira-italic.woff2) format("woff2");font-style:italic;font-weight:100 900;font-stretch:50% 125%;font-display:swap}
+:root{
+  color-scheme: dark;
+  --ink:#070B1F;        /* livery base navy */
+  --deep:#0E1640;
+  --volt:#2D4BFF;       /* hex-pattern blue */
+  --glow:#46C8FF;       /* studio backdrop cyan */
+  --ghost:#EEF2FF;      /* mascot white */
+  --mute:#8C95BC;
+  --display:"Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --race:"Saira", "Arial", sans-serif;  /* "Racing" and the number, as on the cars */
+  --body:"Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+*{box-sizing:border-box}
+html:has(dialog[open]){overflow:hidden}
+body{margin:0;background:var(--ink);color:var(--ghost);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--glow);outline-offset:3px}
+
+/* Hero */
+.hero{position:relative;min-height:min(100svh,980px);display:grid;align-items:end;overflow:hidden;isolation:isolate}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 50%;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(to top,var(--ink) 4%,rgba(7,11,31,.75) 30%,rgba(7,11,31,0) 62%)}
+.hero-inner{width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,3rem) calc(clamp(2.5rem,7vw,5rem) + env(safe-area-inset-bottom,0px))}
+.num{font:italic 900 semi-condensed clamp(5rem,16vw,12rem)/.8 var(--race);color:transparent;-webkit-text-stroke:2px var(--glow);margin:0 0 .5rem}
+h1{font-size:clamp(3rem,9vw,7rem);margin:0;display:flex;flex-direction:column;align-items:flex-end;width:max-content}
+h1 .logo{display:block;width:2.6em;height:auto;overflow:visible}
+.race{font:italic 300 .7em/1 var(--race)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.lede{max-width:34ch;margin:1.25rem 0 2rem;color:#C9D0EE;font-size:clamp(1.05rem,1.6vw,1.25rem)}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 1.4rem;border-radius:999px;background:var(--ghost);color:var(--ink);font-weight:600;text-decoration:none;transition:background .2s}
+.btn:hover{background:var(--glow)}
+.btn svg{width:1.15em;height:1.15em}
+
+/* Liveries */
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,4vw,3rem)}
+.car{padding:clamp(4rem,9vw,7rem) 0 0}
+.car-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.5rem 2rem;margin-bottom:1.5rem;border-bottom:1px solid #26305F;padding-bottom:1rem}
+h2{font:700 clamp(2rem,5vw,3.5rem)/1 var(--display);margin:0;text-transform:uppercase}
+.car-head p{margin:0;color:var(--mute);max-width:44ch}
+.shots{display:grid;gap:.75rem;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr}
+.shots button:first-child{grid-row:1 / span 2}
+.shots button{all:unset;cursor:zoom-in;display:block;overflow:hidden;border-radius:6px;background:var(--deep)}
+.shots button:focus-visible{outline:2px solid var(--glow);outline-offset:3px}
+.shots img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.shots button:hover img{transform:scale(1.03)}
+@media (max-width:700px){
+  .shots{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .shots button:first-child{grid-column:1 / span 2;grid-row:auto}
+}
+
+/* Follow */
+.follow{margin:clamp(5rem,10vw,8rem) 0 0;padding:clamp(3rem,7vw,5rem) 0;background:linear-gradient(100deg,var(--deep),#13207A 60%,var(--volt))}
+.follow .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem}
+.follow h2{font-size:clamp(1.8rem,4.5vw,3rem)}
+.follow p{margin:.4rem 0 0;color:#C9D0EE}
+
+footer{padding:2.5rem 0 calc(2.5rem + env(safe-area-inset-bottom,0px));color:var(--mute);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:center}
+.sponsor{display:flex;align-items:center;gap:.6rem;color:var(--ghost)}
+.sponsor svg{width:28px;height:28px}
+.sponsor a{text-decoration-color:var(--mute);text-underline-offset:.2em;transition:color .2s}
+.sponsor a:hover{color:var(--glow)}
+
+/* Lightbox */
+dialog{padding:0;border:0;background:transparent;max-width:min(96vw,1600px,92svh*16/9);width:100%}
+dialog::backdrop{background:rgba(4,6,18,.92)}
+dialog img{width:100%;aspect-ratio:16/9;border-radius:6px;background:var(--deep)}
+dialog form{position:absolute;top:.5rem;right:.5rem}
+dialog button{all:unset;cursor:pointer;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:rgba(7,11,31,.7);color:var(--ghost);font-size:1.5rem}
+dialog button:focus-visible{outline:2px solid var(--glow)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img src="img/m6-front.webp" alt="BMW M6 GT3 in the navy, blue and white Bonix Racing livery, number 21" width="1600" height="900" fetchpriority="high">
+  <div class="hero-inner">
+    <p class="num" aria-hidden="true">21</p>
+    <h1><span class="vh">Bonix </span><svg class="logo" viewBox="15480 9980 2780 1140" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="25" stroke-linejoin="round"><path d="M 16341,10389 C 16292,10389 16244,10437 16244,10486 L 16244,10746 C 16244,10794 16292,10843 16341,10843 L 16479,10843 C 16527,10843 16576,10794 16576,10746 L 16576,10486 C 16576,10437 16527,10389 16479,10389 L 16341,10389 Z"/><path d="M 16316,10284 L 16503,10284 C 16586,10284 16668,10366 16668,10448 L 16668,10783 C 16668,10865 16586,10947 16503,10947 L 16316,10947 C 16234,10947 16152,10865 16152,10783 L 16152,10448 C 16152,10366 16234,10284 16316,10284 Z"/><path d="M 17402,10947 L 17347,10947 17347,10283 17457,10283 17457,10947 17402,10947 Z"/><path d="M 18200,10095 L 17898,10591 18111,10855 18238,10855 18238,10947 18185,10947 18185,10947 18065,10947 17846,10676 17588,11100 17497,11050 17777,10590 17550,10297 17556,10284 17649,10284 17829,10506 18109,10044 18200,10095 Z"/><path d="M 17133,10284 L 17244,10284 17244,10855 C 17244,10872 17240,10886 17231,10901 17223,10915 17212,10926 17198,10934 17183,10943 17169,10947 17152,10947 17135,10947 17120,10943 17106,10934 17091,10926 17080,10915 17072,10901 17066,10890 17062,10880 17061,10869 L 16875,10413 16875,10947 16765,10947 16765,10376 C 16765,10376 16775,10342 16783,10327 16792,10312 16802,10302 16817,10293 16832,10285 16846,10281 16863,10281 16880,10281 16895,10285 16909,10293 16924,10302 16934,10312 16943,10327 16945,10331 16947,10336 16949,10340 L 16950,10340 17133,10792 17133,10284 Z"/><path d="M 15650,10642 L 15650,10854 15873,10854 C 15911,10854 15949,10817 15949,10779 L 15949,10672 C 15949,10634 15911,10596 15873,10596 L 15650,10596 15650,10512 15539,10512 15539,10376 15650,10376 15650,10486 15872,10486 C 15910,10486 15949,10448 15949,10410 L 15949,10299 C 15949,10261 15910,10223 15872,10223 L 15650,10223 15650,10247 15539,10247 15539,10146 15539,10141 C 15551,10136 15564,10134 15577,10134 L 15919,10134 C 15989,10134 16060,10205 16060,10275 L 16060,10435 C 16060,10474 16038,10513 16007,10540 16038,10567 16060,10606 16060,10646 L 16060,10806 C 16060,10876 15989,10947 15919,10947 L 15631,10947 15539,10947 15539,10642 15650,10642 Z"/></g><g fill="currentColor" stroke="currentColor" stroke-width="28" stroke-linejoin="round"><path d="M 16303,10345 C 16254,10345 16206,10393 16206,10442 L 16206,10702 C 16206,10750 16254,10799 16303,10799 L 16441,10799 C 16489,10799 16538,10750 16538,10702 L 16538,10442 C 16538,10393 16489,10345 16441,10345 L 16303,10345 Z M 16278,10240 L 16465,10240 C 16548,10240 16630,10322 16630,10404 L 16630,10739 C 16630,10821 16548,10903 16465,10903 L 16278,10903 C 16196,10903 16114,10821 16114,10739 L 16114,10404 C 16114,10322 16196,10240 16278,10240 Z"/><path d="M 17366,10903 L 17310,10903 17310,10239 17421,10239 17421,10903 17366,10903 Z"/><path d="M 18162,10051 L 17860,10547 18073,10811 18200,10811 18200,10903 18147,10903 18147,10903 18027,10903 17808,10632 17550,11056 17459,11006 17739,10546 17512,10253 17518,10240 17611,10240 17791,10462 18071,10000 18162,10051 Z"/><path d="M 17095,10240 L 17206,10240 17206,10811 C 17206,10828 17202,10842 17193,10857 17185,10871 17174,10882 17160,10890 17145,10899 17131,10903 17114,10903 17097,10903 17082,10899 17068,10890 17053,10882 17042,10871 17034,10857 17028,10846 17024,10836 17023,10825 L 16837,10369 16837,10903 16727,10903 16727,10332 C 16727,10332 16737,10298 16745,10283 16754,10268 16764,10258 16779,10249 16794,10241 16808,10237 16825,10237 16842,10237 16857,10241 16871,10249 16886,10258 16896,10268 16905,10283 16907,10287 16909,10292 16911,10296 L 16912,10296 17095,10748 17095,10240 Z"/><path d="M 15612,10598 L 15612,10810 15835,10810 C 15873,10810 15911,10773 15911,10735 L 15911,10628 C 15911,10590 15873,10552 15835,10552 L 15612,10552 15612,10468 15501,10468 15501,10332 15612,10332 15612,10442 15834,10442 C 15872,10442 15911,10404 15911,10366 L 15911,10255 C 15911,10217 15872,10179 15834,10179 L 15612,10179 15612,10203 15501,10203 15501,10102 15501,10097 C 15513,10092 15526,10090 15539,10090 L 15881,10090 C 15951,10090 16022,10161 16022,10231 L 16022,10391 C 16022,10430 16000,10469 15969,10496 16000,10523 16022,10562 16022,10602 L 16022,10762 C 16022,10832 15951,10903 15881,10903 L 15593,10903 15501,10903 15501,10598 15612,10598 Z"/></g></svg><span class="race">Racing</span></h1>
+    <p class="lede">Gran Turismo 7 team running car #21.</p>
+    <a class="btn" href="https://www.instagram.com/bonix_sim.racing/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+      Follow on Instagram
+    </a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="car" aria-labelledby="m6">
+    <div class="car-head">
+      <h2 id="m6">BMW M6 GT3</h2>
+      <p>Nordschleife livery. Ghost camo over the hex pattern, because the Green Hell is my heaven.</p>
+    </div>
+    <div class="shots">
+      <button aria-haspopup="dialog" data-full="img/m6-front.webp"><img src="img/m6-front-s.webp" width="800" height="450" alt="M6 GT3, front three-quarter view" loading="lazy"></button>
+      <button aria-haspopup="dialog" data-full="img/m6-rear.webp"><img src="img/m6-rear-s.webp" width="800" height="450" alt="M6 GT3, rear three-quarter view" loading="lazy"></button>
+      <button aria-haspopup="dialog" data-full="img/m6-top.webp"><img src="img/m6-top-s.webp" width="800" height="450" alt="M6 GT3, from above" loading="lazy"></button>
+    </div>
+  </section>
+
+  <section class="car" aria-labelledby="v8">
+    <div class="car-head">
+      <h2 id="v8">BMW M Hybrid V8</h2>
+      <p>Hypercar livery for endurance racing, with the same colours and ghosts as the M6.</p>
+    </div>
+    <div class="shots">
+      <button aria-haspopup="dialog" data-full="img/v8-front.webp"><img src="img/v8-front-s.webp" width="800" height="450" alt="M Hybrid V8, front three-quarter view" loading="lazy"></button>
+      <button aria-haspopup="dialog" data-full="img/v8-rear.webp"><img src="img/v8-rear-s.webp" width="800" height="450" alt="M Hybrid V8, rear three-quarter view" loading="lazy"></button>
+      <button aria-haspopup="dialog" data-full="img/v8-top.webp"><img src="img/v8-top-s.webp" width="800" height="450" alt="M Hybrid V8, from above" loading="lazy"></button>
+    </div>
+  </section>
+</main>
+
+<section class="follow">
+  <div class="wrap">
+    <div>
+      <h2>New liveries land on Instagram first</h2>
+      <p>Race clips, photo mode shots and work in progress.</p>
+    </div>
+    <a class="btn" href="https://www.instagram.com/bonix_sim.racing/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+      @bonix_sim.racing
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="sponsor">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3C9.9 3 6 7.6 6 13.5V27l3.3-2.4L12.7 27l3.3-2.4 3.3 2.4 3.4-2.4L26 27V13.5C26 7.6 22.1 3 16 3z"/><circle cx="12.3" cy="13.5" r="1.8" fill="#070B1F"/><circle cx="19.7" cy="13.5" r="1.8" fill="#070B1F"/></svg>
+      <span>Supported by <a href="https://bonix.fi/">Bonix Oy</a></span>
+    </span>
+    <span>© 2026 Bonix Racing. Screenshots from Gran Turismo 7.</span>
+  </div>
+</footer>
+
+<dialog id="lb" aria-label="Livery image">
+  <form method="dialog"><button aria-label="Close">×</button></form>
+  <img alt="">
+</dialog>
+
+<script>
+const lb = document.getElementById('lb'), big = lb.querySelector('img');
+document.querySelectorAll('.shots button').forEach(b => b.addEventListener('click', () => {
+  big.src = b.dataset.full; big.alt = b.querySelector('img').alt; lb.showModal();
+}));
+lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
+lb.addEventListener('close', () => big.removeAttribute('src'));
+</script>
+</body>
+</html>
